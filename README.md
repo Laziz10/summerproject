@@ -2,4 +2,4 @@
 This is simple Streamlit ML app
 
 
-![.](https://github.com/Ibrokhimsadikov/ABD_Society/blob/master/Maya.JPG)
+![.](https://github.com/AYMAX10/summerproject/blob/master/github.jpg)
