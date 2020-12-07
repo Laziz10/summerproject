@@ -31,8 +31,8 @@ st.markdown(html_temp,unsafe_allow_html=True)
 st.sidebar.header('Tasker Information')
 
 def user_input_features():
-    Position = st.sidebar.text_input('Position', 1)
-    Rate = st.sidebar.text_input('Hourly Rate, USD', 10 )
+    Positiong = st.sidebar.text_input('Position', 1)
+    Rateg = st.sidebar.text_input('Hourly Rate, USD', 10 )
     Tasks = st.sidebar.text_input('Completed Tasks', 50)
     Appg = st.sidebar.text_input('Total Appearance', 5)
     Timeg = st.sidebar.text_input('Time (AM=0, PM=1)', 0)
@@ -45,7 +45,7 @@ def user_input_features():
             'Appearance': Appg,
             'Time': Timeg,
            'Day': Dayg,
-           'Category': ctg}
+           'Category': Ctg}
     
     features = pd.DataFrame(data, index=[0])
     return features
