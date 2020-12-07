@@ -31,8 +31,8 @@ st.markdown(html_temp,unsafe_allow_html=True)
 st.sidebar.header('Borrower Information')
 
 def user_input_features():
-    Loang = st.sidebar.text_input('Loan Amount', 10000)
-    Term = st.sidebar.text_input('Term (0 for 36 months/ 1 for 60 months)', 0 )
+    Loang = st.sidebar.text_input('Amount', 10000)
+    Term = st.sidebar.text_input('Term', 0 )
     Rateg = st.sidebar.text_input('Interest Rate', 15)
     Empg = st.sidebar.text_input('Employment History', 3)
     Incomeg = st.sidebar.text_input('Annual Income', 25000)
