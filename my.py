@@ -19,48 +19,40 @@ classifier=pickle.load(pickle_in)
 #st.image(img, width=300)
 
 st.write("""
-# Loan Predictor for Lending Club
-This app is developed by "49", Institute of Advanced Analytics, 2020
+# TASK RABBIT APP
+Developed by "Team 49", UNCC, 2020
 """)
 html_temp = """
-    <div style="background-color:#e61212;padding:10px">
-    <h2 style="color:white;text-align:center;">This app predicts the Credit Default Grade for any user </h2>
+    <div style="background-color:#12e65c;padding:10px">
+    <h2 style="color:white;text-align:center;">Will a Tasker be hired? </h2>
     </div>
     """
 st.markdown(html_temp,unsafe_allow_html=True)
-st.sidebar.header('Borrower Information')
+st.sidebar.header('Tasker Information')
 
 def user_input_features():
-    Loang = st.sidebar.text_input('Amount', 10000)
-    Term = st.sidebar.text_input('Term', 0 )
-    Rateg = st.sidebar.text_input('Interest Rate', 15)
-    Empg = st.sidebar.text_input('Employment History', 3)
-    Incomeg = st.sidebar.text_input('Annual Income', 25000)
-    Purpose = st.sidebar.text_input('Purpose (0 for Debt, 1 other)', 0)
-    Dtig = st.sidebar.text_input('Debt to Income', 20)
-    Inquiryg = st.sidebar.text_input('Total Inquiries', 0)
-    Utiliz = st.sidebar.text_input('Utilization', 55)
-    Total = st.sidebar.text_input('Total Lines', 8)
-    Total_Balance = st.sidebar.text_input('Total Balance', 0) 
+    Position = st.sidebar.text_input('Position', 1)
+    Rate = st.sidebar.text_input('Hourly Rate, USD', 10 )
+    Tasks = st.sidebar.text_input('Completed Tasks', 50)
+    Appg = st.sidebar.text_input('Total Appearance', 5)
+    Timeg = st.sidebar.text_input('Time (AM=0, PM=1)', 0)
+    Dayg = st.sidebar.text_input('Day (Weekday=0, Weekend=1)', 0)
+    Ctg = st.sidebar.text_input('Category (Furniture=0, Moving=1, Mounting=2)', 1)
     
-    data = {'Loan Amount': Loang,
-            'Term (0 for 36 months/ 1 for 60 months)': Term,
-            'Interest Rate': Rateg,
-            'Employment History': Empg,
-            'Annual Income': Incomeg,
-            'Purpose (0 for Debt, 1 other)': Purpose,
-           'Debt to Income': Dtig,
-           'Total Inquiries': Inquiryg,
-           'Utilization': Utiliz,
-           'Total Lines': Total,
-           'Total Balance': Total_Balance}
+    data = {'Position': Positiong,
+            'Rate': Rateg,
+            'Completed Tasks': Tasks,
+            'Appearance': Appg,
+            'Time': Timeg,
+           'Day': Dayg,
+           'Category': ctg}
     
     features = pd.DataFrame(data, index=[0])
     return features
 
 df = user_input_features()
 
-st.subheader('Borrower Information')
+st.subheader('Tasker Information')
 st.write(df)
 
 #iris = datasets.load_iris()
@@ -74,12 +66,7 @@ prediction_proba =classifier.predict_proba(df)
 #st.write(iris.target_names)
 st.subheader('Result')
 #st.write(iris.target_names[prediction])
-st.write('GOOD' if prediction==0 else 'BAD')
+st.write('Hired' if prediction==0 else 'Not Hired')
 st.subheader('Prediction Probability')
 st.write(prediction_proba)
 # In[ ]:
-
-
-
-
-
