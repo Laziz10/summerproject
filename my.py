@@ -20,7 +20,7 @@ classifier=pickle.load(pickle_in)
 
 st.write("""
 # Loan Predictor for Lending Club
-This app is developed by "23AC", Institute of Advanced Analytics, 2020
+This app is developed by "49", Institute of Advanced Analytics, 2020
 """)
 html_temp = """
     <div style="background-color:#e61212;padding:10px">
