@@ -12,11 +12,9 @@ from sklearn.ensemble import RandomForestClassifier
 #from PIL import Image
 
 
-# pickle_in = open("classifier1.pkl","rb")
-# classifier=pickle.load(pickle_in)
-
-pickle_in = open("final_model.sav","rb")
+pickle_in = open("classifier.pkl","rb")
 classifier=pickle.load(pickle_in)
+
 
 
 #img=Image.open("example.jpeg")
