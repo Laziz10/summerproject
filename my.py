@@ -3,7 +3,6 @@
 
 # In[2]:
 
-
 import streamlit as st
 import pandas as pd
 from sklearn import datasets
@@ -25,8 +24,8 @@ st.write("""
 Developed by "Team 49", UNCC, 2020
 """)
 html_temp = """
-    <div style="background-color:#12e65c;padding:10px">
-    <h2 style="color:white;text-align:center;">Will a Tasker be hired? </h2>
+    <div style="background-color:#06c94a;padding:10px">
+    <h2 style="color:black;text-align:center;">Hired or Not? </h2>
     </div>
     """
 st.markdown(html_temp,unsafe_allow_html=True)
@@ -37,12 +36,12 @@ def user_input_features():
     Rateg = st.sidebar.text_input('Hourly Rate, USD', 10 )
     Tasks = st.sidebar.text_input('Completed Tasks', 50)
     Appg = st.sidebar.text_input('Total Appearance', 5)
-    Hiredg = st.sidebar.text_input('Completed Tasks', 0)
-    Weekg = st.sidebar.text_input('Weekend', 0)
+    Hiredg = st.sidebar.text_input('Total Hired', 0)
+    Weekg = st.sidebar.text_input('Day (Weekday=0, Weekday=1)', 0)
     Dateg = st.sidebar.text_input('Date', 0)
-    Dayg = st.sidebar.text_input('AM or PM', 0)
-    Mounting = st.sidebar.text_input('Mounting', 1)
-    Moving = st.sidebar.text_input('Moving', 1)
+    Dayg = st.sidebar.text_input('Time (AM=0, PM=1)', 0)
+    Mounting = st.sidebar.text_input('Task Type (Mounting=1)', 1)
+    Moving = st.sidebar.text_input('Task Type (Moving=1)', 1)
     
     data = {'position': Positiong,
             'rate': Rateg,
@@ -60,7 +59,7 @@ def user_input_features():
 
 df = user_input_features()
 
-st.subheader('Tasker Information')
+st.subheader('Tasker Information:')
 st.write(df)
 
 #iris = datasets.load_iris()
@@ -72,9 +71,8 @@ prediction = classifier.predict(df)
 prediction_proba =classifier.predict_proba(df)
 #st.subheader('Class labels and their corresponding index number')
 #st.write(iris.target_names)
-st.subheader('Result')
+st.subheader('Prediction:')
 #st.write(iris.target_names[prediction])
-st.write('Hired' if prediction==0 else 'Not Hired')
-st.subheader('Prediction Probability')
+st.write('Congrats, Hired!' if prediction==1 else 'Sorry, Not Hired :(')
+st.subheader('Probability in %:')
 st.write(prediction_proba)
-# In[ ]:
