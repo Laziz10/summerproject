@@ -12,8 +12,12 @@ from sklearn.ensemble import RandomForestClassifier
 #from PIL import Image
 
 
-pickle_in = open("classifier1.pkl","rb")
+# pickle_in = open("classifier1.pkl","rb")
+# classifier=pickle.load(pickle_in)
+
+pickle_in = open("final_model.sav","rb")
 classifier=pickle.load(pickle_in)
+
 
 #img=Image.open("example.jpeg")
 #st.image(img, width=300)
@@ -35,17 +39,23 @@ def user_input_features():
     Rateg = st.sidebar.text_input('Hourly Rate, USD', 10 )
     Tasks = st.sidebar.text_input('Completed Tasks', 50)
     Appg = st.sidebar.text_input('Total Appearance', 5)
-    Timeg = st.sidebar.text_input('Time (AM=0, PM=1)', 0)
-    Dayg = st.sidebar.text_input('Day (Weekday=0, Weekend=1)', 0)
-    Ctg = st.sidebar.text_input('Category (Furniture=0, Moving=1, Mounting=2)', 1)
+    Hiredg = st.sidebar.text_input('Completed Tasks', 0)
+    Weekg = st.sidebar.text_input('Weekend', 0)
+    Dateg = st.sidebar.text_input('Date', 0)
+    Dayg = st.sidebar.text_input('AM or PM', 0)
+    Mounting = st.sidebar.text_input('Mounting', 1)
+    Moving = st.sidebar.text_input('Moving', 1)
     
-    data = {'Position': Positiong,
-            'Rate': Rateg,
-            'Completed Tasks': Tasks,
-            'Appearance': Appg,
-            'Time': Timeg,
-           'Day': Dayg,
-           'Category': Ctg}
+    data = {'position': Positiong,
+            'rate': Rateg,
+            'tasks': Tasks,
+            'appear': Appg,
+            'hired': Hiredg,
+            'Weekend': Weekg,
+            'date': Dateg;
+           'pm': Dayg,
+           'mounting': Mounting,
+           'moving': Moving}
     
     features = pd.DataFrame(data, index=[0])
     return features
