@@ -50,7 +50,7 @@ def user_input_features():
             'appear': Appg,
             'hired': Hiredg,
             'Weekend': Weekg,
-            'date': Dateg;
+            'date': Dateg,
            'pm': Dayg,
            'mounting': Mounting,
            'moving': Moving}
