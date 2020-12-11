@@ -37,22 +37,23 @@ def user_input_features():
     Tasks = st.sidebar.text_input('Completed Tasks', 0)
     Appg = st.sidebar.text_input('Total Appearance', 10)
     Hiredg = st.sidebar.text_input('Total Hired', 10)
-    Dateg = st.sidebar.text_input('Date', 1)
-    Weekg = st.sidebar.text_input('Day (Weekday=0, Weekday=1)', 0)
-    Dayg = st.sidebar.text_input('Time (AM=0, PM=1)', 0)
+    Weekg = st.sidebar.text_input('Day (Weekday=0, Weekend=1)', 0)
     Mounting = st.sidebar.text_input('Task Type (Mounting=1)', 0)
-    Moving = st.sidebar.text_input('Task Type (Moving=1)', 1)
+    Moving = st.sidebar.text_input('Task Type (Moving=1)', 1
+    Dateg = st.sidebar.text_input('Date - N/A', 0)
+    Dayg = st.sidebar.text_input('Time - N/A', 0)
+)
     
     data = {'position': Positiong,
             'rate': Rateg,
             'tasks': Tasks,
             'appear': Appg,
             'hired': Hiredg,
-            'date': Dateg,
             'Weekend': Weekg,
-            'pm': Dayg,
            'mounting': Mounting,
-           'moving': Moving}
+           'moving': Moving,
+           'date': Dateg,
+           'pm': Dayg}
     
     features = pd.DataFrame(data, index=[0])
     return features
