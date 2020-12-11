@@ -37,6 +37,7 @@ def user_input_features():
     Tasks = st.sidebar.text_input('Completed Tasks', 0)
     Appg = st.sidebar.text_input('Total Appearance', 10)
     Hiredg = st.sidebar.text_input('Total Hired', 10)
+    Dateg = st.sidebar.text_input('Date', 1)
     Weekg = st.sidebar.text_input('Day (Weekday=0, Weekday=1)', 0)
     Dayg = st.sidebar.text_input('Time (AM=0, PM=1)', 0)
     Mounting = st.sidebar.text_input('Task Type (Mounting=1)', 0)
@@ -47,6 +48,7 @@ def user_input_features():
             'tasks': Tasks,
             'appear': Appg,
             'hired': Hiredg,
+            'date': Dateg,
             'Weekend': Weekg,
             'pm': Dayg,
            'mounting': Mounting,
