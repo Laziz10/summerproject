@@ -32,26 +32,26 @@ st.markdown(html_temp,unsafe_allow_html=True)
 st.sidebar.header('Claim Information')
 
 def user_input_features():
-    Gender = st.sidebar.text_input('Gender (Male=0, Female=1', 1)
-    Age = st.sidebar.text_input('Age', 40 )
+    Gender = st.sidebar.text_input('Gender (Male=0, Female=1)', 1)
+    Year = st.sidebar.text_input('Year', 2020 )
     Month = st.sidebar.text_input('Month', 12)
-    Type = st.sidebar.text_input('Claimant Type (Indemnity=0, Other=1', 0)
-    Nature = st.sidebar.text_input('Injury Nature (Strain=0, Contusion=1', 1)
+    Type = st.sidebar.text_input('Claimant Type (Indemnity=0, Other=1)', 0)
+    Nature = st.sidebar.text_input('Injury Nature (Strain=0, Contusion=1)', 1)
     Body = st.sidebar.text_input('Body (Lower=0, Upper=1)', 1)
     Fatality = st.sidebar.text_input('Fatality (Fatal=0, Non-Fatal=1)', 1)
     Day = st.sidebar.text_input('Day', 23)
-    Year = st.sidebar.text_input('Year', 2020)
+    Age = st.sidebar.text_input('Age', 70)
     Location = st.sidebar.text_input('Location (East Coast=0, West Coast=1', 0)
     
     data = {'position': Gender,
-            'rate': Age,
+            'rate': Year,
             'tasks': Month,
             'appear': Type,
             'hired': Nature,
             'Weekend': Body,
            'mounting': Fatality,
            'moving': Day,
-           'date': Year,
+           'date': Age,
            'pm': Location}
     
     features = pd.DataFrame(data, index=[0])
@@ -71,7 +71,7 @@ prediction = classifier.predict(df)
 prediction_proba =classifier.predict_proba(df)
 #st.subheader('Class labels and their corresponding index number')
 #st.write(iris.target_names)
-st.subheader('Claim Est:')
+st.subheader('Claim Estimation:')
 #st.write(iris.target_names[prediction])
 st.write('Below Average: Relax, Happy Holidays!' if prediction==1 else 'Above Average: Contact Dr. Subramaniam!')
 st.subheader('Probability in %:')
