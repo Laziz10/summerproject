@@ -20,8 +20,8 @@ classifier=pickle.load(pickle_in)
 #st.image(img, width=300)
 
 st.write("""
-# TASK RABBIT
-Developed by "TEAM 49", UNCC, 2020
+# Claim Probability
+Developed by UNCC students, Dec 2020
 """)
 html_temp = """
     <div style="background-color:#06c94a;padding:10px">
@@ -29,37 +29,37 @@ html_temp = """
     </div>
     """
 st.markdown(html_temp,unsafe_allow_html=True)
-st.sidebar.header('Tasker Information')
+st.sidebar.header('Claim Information')
 
 def user_input_features():
-    Positiong = st.sidebar.text_input('Position', 1)
-    Rateg = st.sidebar.text_input('Hourly Rate, USD', 30 )
-    Tasks = st.sidebar.text_input('Completed Tasks', 0)
-    Appg = st.sidebar.text_input('Total Appearance', 10)
-    Hiredg = st.sidebar.text_input('Total Hired', 10)
-    Weekg = st.sidebar.text_input('Day (Weekday=0, Weekend=1)', 0)
-    Mounting = st.sidebar.text_input('Task Type (Mounting=1)', 0)
-    Moving = st.sidebar.text_input('Task Type (Moving=1)', 1)
-    Dateg = st.sidebar.text_input('Date - N/A', 0)
-    Dayg = st.sidebar.text_input('Time - N/A', 0)
+    Gender = st.sidebar.text_input('Gender (Male=0, Female=1', 1)
+    Age = st.sidebar.text_input('Age', 40 )
+    Month = st.sidebar.text_input('Month', 12)
+    Type = st.sidebar.text_input('Claimant Type (Indemnity=0, Other=1', 0)
+    Nature = st.sidebar.text_input('Injury Nature (Strain=0, Contusion=1', 1)
+    Body = st.sidebar.text_input('Body (Lower=0, Upper=1)', 1)
+    Fatality = st.sidebar.text_input('Fatality (Fatal=0, Non-Fatal=1)', 1)
+    Day = st.sidebar.text_input('Day', 23)
+    Year = st.sidebar.text_input('Year', 2020)
+    Location = st.sidebar.text_input('Location (East Coast=0, West Coast=1', 0)
     
-    data = {'position': Positiong,
-            'rate': Rateg,
-            'tasks': Tasks,
-            'appear': Appg,
-            'hired': Hiredg,
-            'Weekend': Weekg,
-           'mounting': Mounting,
-           'moving': Moving,
-           'date': Dateg,
-           'pm': Dayg}
+    data = {'position': Gender,
+            'rate': Age,
+            'tasks': Month,
+            'appear': Type,
+            'hired': Nature,
+            'Weekend': Body,
+           'mounting': Fatality,
+           'moving': Day,
+           'date': Year,
+           'pm': Location}
     
     features = pd.DataFrame(data, index=[0])
     return features
 
 df = user_input_features()
 
-st.subheader('Tasker Information:')
+st.subheader('Claim Information:')
 st.write(df)
 
 #iris = datasets.load_iris()
@@ -71,8 +71,8 @@ prediction = classifier.predict(df)
 prediction_proba =classifier.predict_proba(df)
 #st.subheader('Class labels and their corresponding index number')
 #st.write(iris.target_names)
-st.subheader('Prediction:')
+st.subheader('Claim Est:')
 #st.write(iris.target_names[prediction])
-st.write('Congrats, Hired!' if prediction==1 else 'Sorry, Not Hired :(')
+st.write('Below Average: Relax, Happy Holidays!' if prediction==1 else 'Above Average: Contact Dr. Subramaniam!')
 st.subheader('Probability in %:')
 st.write(prediction_proba)
