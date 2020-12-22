@@ -39,8 +39,8 @@ def user_input_features():
     Nature = st.sidebar.text_input('Injury Nature (Strain=0, Contusion=1)', 1)
     Body = st.sidebar.text_input('Body (Lower=0, Upper=1)', 1)
     Fatality = st.sidebar.text_input('Fatality (Fatal=0, Non-Fatal=1)', 1)
-    Day = st.sidebar.text_input('Day', 23)
-    Age = st.sidebar.text_input('Age', 70)
+    Day = st.sidebar.text_input('Age', 15)
+    Age = st.sidebar.text_input('Open Days', 23)
     Location = st.sidebar.text_input('Location (East Coast=0, West Coast=1', 0)
     
     data = {'position': Gender,
