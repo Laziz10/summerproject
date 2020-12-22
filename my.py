@@ -29,11 +29,11 @@ html_temp = """
     </div>
     """
 st.markdown(html_temp,unsafe_allow_html=True)
-st.sidebar.header('Claim Information')
+st.sidebar.header('Claim Information:')
 
 def user_input_features():
     Gender = st.sidebar.text_input('Gender (Male=0, Female=1)', 1)
-    Year = st.sidebar.text_input('Year', 2020 )
+    Date = st.sidebar.text_input('Date', 23 )
     Month = st.sidebar.text_input('Month', 12)
     Type = st.sidebar.text_input('Claimant Type (Indemnity=0, Other=1)', 0)
     Nature = st.sidebar.text_input('Injury Nature (Strain=0, Contusion=1)', 1)
@@ -44,7 +44,7 @@ def user_input_features():
     Location = st.sidebar.text_input('Location (East Coast=0, West Coast=1', 0)
     
     data = {'position': Gender,
-            'rate': Year,
+            'rate': Date,
             'tasks': Month,
             'appear': Type,
             'hired': Nature,
