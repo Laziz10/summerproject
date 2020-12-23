@@ -21,7 +21,7 @@ classifier=pickle.load(pickle_in)
 
 st.write("""
 # Claim Probability
-Developed by UNCC students, Dec 2020
+Developed by Group 6, UNCC, Dec 2020
 """)
 html_temp = """
     <div style="background-color:#06c94a;padding:10px">
